@@ -8,7 +8,7 @@ with source as (
 
 ),
 
-renamed as (
+renamed as ( 
 
     select
         order_id,
