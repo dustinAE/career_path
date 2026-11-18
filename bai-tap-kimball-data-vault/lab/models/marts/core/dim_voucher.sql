@@ -12,15 +12,15 @@ from voucher_info
 union all
 
 select 
-    -1 as voucher_key, 
-    -1 as voucher_code,
+    '-1' as voucher_key, 
+    '-1' as voucher_code,
     'UNKNOWN' as voucher_type,
     'UNKNOWN' as voucher_name
 
 union all 
 
 select 
-    -2 as voucher_key, 
+    '-2' as voucher_key, 
     'KHONG_VOUCHER' as voucher_code,
     'NULL' as voucher_type,
     'NULL' as voucher_name

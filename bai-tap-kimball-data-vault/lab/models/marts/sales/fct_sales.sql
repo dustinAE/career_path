@@ -46,7 +46,7 @@ select ord.*, coalesce(cus.customer_key,'-1') as customer_key, coalesce(prd.prod
     max(line_no) over(partition by ord.order_number) as last_line
 from order_info ord 
 left join customer_info cus
-    on ord.customer_code = cus.customer_code and cus.is_current  --(order_ts >= cus.valid_from and order_ts < cus.valid_to)
+    on ord.customer_code = cus.customer_code and (order_ts >= cus.valid_from and order_ts < cus.valid_to)
 left join product_info prd 
     on ord.sku = prd.sku 
 
