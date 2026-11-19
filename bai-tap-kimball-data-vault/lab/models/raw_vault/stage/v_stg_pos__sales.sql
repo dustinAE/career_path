@@ -13,6 +13,7 @@ hashed_columns:
   CUSTOMER_HK: customer_code
   PRODUCT_HK: sku
   LINK_ORDER_CUSTOMER_HK: [order_number, customer_code]
+  ORDER_LINE_HK: [order_number, sku, line_no]
   
 
 null_columns:
