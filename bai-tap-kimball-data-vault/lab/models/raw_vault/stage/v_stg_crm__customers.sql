@@ -21,3 +21,4 @@ hashed_columns:
                      derived_columns=metadata['derived_columns'],
                      hashed_columns=metadata['hashed_columns'],
                      ranked_columns=none) }}
+
