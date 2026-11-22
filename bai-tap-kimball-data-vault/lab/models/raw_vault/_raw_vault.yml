@@ -1,0 +1,7 @@
+models:
+    - name: sat_customer_crm_status
+      data_tests:
+        - dbt_utils.unique_combination_of_columns:
+            arguments:
+                combination_of_columns: [CUSTOMER_HK, LOAD_DATETIME]
+                

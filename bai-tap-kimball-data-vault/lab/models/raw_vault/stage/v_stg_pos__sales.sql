@@ -14,7 +14,10 @@ hashed_columns:
   PRODUCT_HK: sku
   LINK_ORDER_CUSTOMER_HK: [order_number, customer_code]
   ORDER_LINE_HK: [order_number, sku, line_no]
-  
+  ORDER_POS_HASHDIFF:                       # payload của sat_order_pos (cấp hoá đơn, không gồm cột cấp dòng)
+    is_hashdiff: true
+    columns: [store_code, payment_method, sale_ts]
+
 
 null_columns:
   optional:          # optional → '-2', required → '-1'; giá trị gốc giữ ở customer_code_ORIGINAL
