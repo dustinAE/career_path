@@ -1,12 +1,13 @@
 {
-  "dbtLineage.manifestPath": "bai-tap-kimball-data-vault/lab/target/manifest.json",
+  "dbtLineage.manifestPath": "bai-tap-semantic-dq-governance/lab/target/manifest.json",
   "dbtLineage.enableLiveParser": true,
-  "python.defaultInterpreterPath": "${workspaceFolder}/bai-tap-kimball-data-vault/.venv/bin/python",
+  "python.defaultInterpreterPath": "${workspaceFolder}/bai-tap-semantic-dq-governance/.venv/bin/python",
   "python.terminal.activateEnvironment": true,
 
   "dbt.dbtIntegration": "core",
-  "dbt.dbtPythonPathOverride": "/home/dustin/Desktop/target_ae/bai-tap-kimball-data-vault/.venv/bin/python",
+  "dbt.dbtPythonPathOverride": "/home/dustin/Desktop/target_ae/bai-tap-semantic-dq-governance/.venv/bin/python",
   "dbt.allowListFolders": [
+    "bai-tap-semantic-dq-governance/lab",
     "bai-tap-kimball-data-vault/lab",
     "bai-tap-incremental-scd2-jinja/lab"
   ],
@@ -14,7 +15,9 @@
     "**/bai-tap-incremental-scd2-jinja/lab/**/*.sql": "jinja-sql",
     "**/bai-tap-incremental-scd2-jinja/lab/**/*.yml": "jinja-yaml",
     "**/bai-tap-kimball-data-vault/lab/**/*.sql": "jinja-sql",
-    "**/bai-tap-kimball-data-vault/lab/**/*.yml": "jinja-yaml"
+    "**/bai-tap-kimball-data-vault/lab/**/*.yml": "jinja-yaml",
+    "**/bai-tap-semantic-dq-governance/lab/**/*.sql": "jinja-sql",
+    "**/bai-tap-semantic-dq-governance/lab/**/*.yml": "jinja-yaml"
   },
   "dbt.perspectiveTheme": "Vintage"
 }
