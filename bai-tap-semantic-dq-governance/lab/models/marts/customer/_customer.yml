@@ -1,6 +1,14 @@
 models:
   - name: dim_customers
-    description: "1 dòng / khách hàng. Chứa PII."
-    columns:
-      - name: customer_id
-        data_tests: [unique, not_null]
+    description: "1 one column per one customer.1 dòng / khách hàng. Chứa PII."
+    semantic_model:
+      enabled: true
+      name: customers
+    columns: 
+        - name: customer_id
+          data_tests: [unique, not_null]
+          entity: {type: primary, name: customer}
+        - name: city                      
+          dimension: {type: categorical}
+        - name: segment
+          dimension: {type: categorical}

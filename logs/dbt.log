@@ -126,3 +126,19 @@ Runtime Error
 [0m14:11:45.134211 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72bcf143b490>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72bcf149fd10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72bcf148e580>]}
 [0m14:11:45.134691 [debug] [MainThread]: Flushing usage events
 [0m14:11:46.225735 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m07:56:06.595741 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7246932c1940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x724695561310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x724690363ed0>]}
+
+
+============================== 07:56:06.598127 | 2c63210e-080a-4343-a1c6-a217a4cb14c8 ==============================
+[0m07:56:06.598127 [info ] [MainThread]: Running with dbt=1.12.6
+[0m07:56:06.598554 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'fail_fast': 'False', 'quiet': 'False', 'static_parser': 'True', 'profiles_dir': '/home/dustin/.dbt', 'cache_selected_only': 'False', 'hints_enabled': 'True', 'maximum_seed_size_mib': '1', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'target_path': 'None', 'use_colors': 'True', 'no_print': 'None', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'partial_parse': 'True', 'invocation_command': 'dbt parse', 'warn_error': 'None', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'printer_width': '80', 'debug': 'False', 'log_path': 'logs', 'empty': 'None'}
+[0m07:56:06.598907 [error] [MainThread]: [[31mERROR[0m]: Encountered an error:
+Runtime Error
+  No dbt_project.yml found at expected path /home/dustin/Desktop/target_ae/dbt_project.yml
+  Verify that each entry within packages.yml (and their transitive dependencies) contains a file named dbt_project.yml
+  
+[0m07:56:06.599402 [debug] [MainThread]: Resource report: {"command_name": "parse", "command_success": false, "command_wall_clock_time": 0.07185926, "process_in_blocks": "6880", "process_kernel_time": 0.075696, "process_mem_max_rss": "132480", "process_out_blocks": "8", "process_user_time": 1.113528}
+[0m07:56:06.599747 [debug] [MainThread]: Command `dbt parse` failed at 07:56:06.599680 after 0.07 seconds
+[0m07:56:06.599987 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7246903af100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7246904531d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x72469020d7b0>]}
+[0m07:56:06.600254 [debug] [MainThread]: Flushing usage events
+[0m07:56:07.919956 [debug] [MainThread]: An error was encountered while trying to flush usage events

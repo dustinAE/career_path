@@ -1,24 +1,109 @@
 models:
   - name: fct_orders
     description: "Grain: 1 dòng / đơn (mọi trạng thái). items_amount = tổng tiền hàng, chưa gồm phí ship."
+    semantic_model:
+      enabled: true
+      name: orders
+    agg_time_dimension: order_date
     columns:
+      # ---- Entity: khoá để MetricFlow tự join ----
       - name: order_id
+        data_type: bigint
         data_tests: [unique, not_null]
+        entity: {type: primary, name: sales_order}
+      - name: customer_id
+        entity: {type: foreign, name: customer}
+      - name: utm_source
+        entity: {type: foreign, name: marketing_channel}
+
+      # ---- Dimension thời gian ----
+      - name: order_date
+        granularity: day
+        dimension: {type: time}
+
+      # ---- Dimension phân loại (để group by / filter) ----
+      - name: channel
+        dimension: {type: categorical}
+      - name: payment_method
+        dimension: {type: categorical}
+      - name: status
+        dimension: {type: categorical}
+      - name: is_cancelled
+        dimension: {type: categorical}
+    
 
   - name: fct_order_items
     description: "Grain: 1 dòng / dòng hàng."
+    semantic_model:
+      enabled: true
+      name: order_items
+    agg_time_dimension: order_date
     columns:
       - name: order_item_id
         data_tests: [unique, not_null]
+        entity: {type: primary, name: order_item}
+      - name: order_id
+        entity: {type: foreign, name: sales_order}
+      - name: product_id
+        entity: {type: foreign, name: product}
+      - name: customer_id
+        entity: {type: foreign, name: customer}
+        data_type: bigint
+      - name: utm_source
+        entity: {type: foreign, name: marketing_channel}
+      - name: order_date
+        granularity: day
+        dimension: {type: time}
+  
 
   - name: fct_refunds
     description: "Grain: 1 dòng / lần hoàn tiền. Thời gian = ngày hoàn tiền."
+    semantic_model: 
+      enabled: true
+      name: refunds
+    agg_time_dimension: refund_date
     columns:
       - name: refund_id
         data_tests: [unique, not_null]
+        entity: {type: primary, name: refund}
+      - name: order_id
+        data_type: bigint
+        entity: {type: foreign, name: sales_order}
+      - name: reason
+        dimension: {type: categorical}
+      - name: refund_date
+        granularity: day
+        dimension: {type: time}
+    metrics:
+      - name: refunds
+        label: Refund amount (by refund date)
+        type: simple
+        agg: sum
+        expr: refund_amount
 
   - name: dim_products
     description: "1 dòng / sản phẩm."
+    semantic_model:
+      enabled: true
+      name: products
     columns:
       - name: product_id
         data_tests: [unique, not_null]
+        entity: {type: primary, name: product}
+      - name: category
+        dimension: {type: categorical}
+      - name: brand
+        dimension: {type: categorical}
+
+
+
+
+
+
+
+
+
+
+
+
+
