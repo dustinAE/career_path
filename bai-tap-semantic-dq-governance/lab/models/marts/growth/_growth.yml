@@ -18,6 +18,15 @@ models:
       - name: session_date
         granularity: day
         dimension: {type: time}
+    metriccs:
+      - name: sessions   # tên metric
+        type: simple     # loại metr
+        agg: count       # phép tính
+        expr: session_id # tính trên cột nào 
+      - name: buyers
+        type: simple
+        agg: count_distinct
+        expr: customer_id
 
 
   - name: fct_ad_spend
@@ -35,6 +44,13 @@ models:
       - name: spend_date
         granularity: day
         dimension: {type: time}
+    metrics:
+      - name: ad_spend
+        label: Ad spend
+        type: simple
+        agg: sum 
+        expr: spend
+
 
 
   - name: dim_marketing_channels

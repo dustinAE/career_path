@@ -30,6 +30,20 @@ models:
         dimension: {type: categorical}
       - name: is_cancelled
         dimension: {type: categorical}
+    metrics:
+      - name: orders
+        label: Orders (excl, cancelled)
+        type: simple 
+        agg: count
+        expr: order_id
+        filter: "{{ Dimension('sales_order__is_cancelled') }} = false"
+      - name: buyers 
+        label: Buyers (distinct customers, excl. cancelled)
+        type: simple
+        agg: count_distinct
+        expr: customer_id
+        
+
     
 
   - name: fct_order_items
@@ -54,7 +68,21 @@ models:
       - name: order_date
         granularity: day
         dimension: {type: time}
-  
+    metrics:
+      - name: revenue
+        label: Revenue (cancel orders) 
+        type: simple
+        agg: sum
+        expr: line_amount
+        filter: "{{ Dimension('sales_order__is_cancelled') }} = false"
+      
+      - name: cogs
+        label: Cost of goods sold 
+        type: simple
+        agg: sum
+        expr: line_cost
+        filter: "{{ Dimension('sales order__is_cancelled') }} = false"
+        hidden: true 
 
   - name: fct_refunds
     description: "Grain: 1 dòng / lần hoàn tiền. Thời gian = ngày hoàn tiền."
