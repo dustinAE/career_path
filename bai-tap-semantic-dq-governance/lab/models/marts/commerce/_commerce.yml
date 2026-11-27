@@ -42,6 +42,7 @@ models:
         type: simple
         agg: count_distinct
         expr: customer_id
+        filter: "{{ Dimension('sales_order__is_cancelled') }} = false"
         
 
     
@@ -81,7 +82,7 @@ models:
         type: simple
         agg: sum
         expr: line_cost
-        filter: "{{ Dimension('sales order__is_cancelled') }} = false"
+        filter: "{{ Dimension('sales_order__is_cancelled') }} = false"
         hidden: true 
 
   - name: fct_refunds
