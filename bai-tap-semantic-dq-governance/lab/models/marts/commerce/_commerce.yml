@@ -113,6 +113,16 @@ models:
         type: simple
         agg: sum
         expr: refund_amount
+      
+      - name: refund_rate
+        label: Refund rate (refunds / revenue)
+        type: ratio
+        numerator: refunds
+        denominator: revenue
+   
+      
+      
+      
 
   - name: dim_products
     description: "1 dòng / sản phẩm."
