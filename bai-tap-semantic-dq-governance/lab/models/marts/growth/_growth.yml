@@ -23,7 +23,12 @@ models:
         type: simple     # loại metr
         agg: count       # phép tính
         expr: session_id # tính trên cột nào 
-    
+      - name: conversion_rate 
+        label: Conversion rate (orders / sessions)
+        type: ratio
+        numerator: orders
+        denominator: sessions
+
 
 
   - name: fct_ad_spend
@@ -48,6 +53,12 @@ models:
         agg: sum 
         expr: spend
 
+      - name: roas
+        label: ROAS (revenue / ad spend)
+        type: ratio
+        numerator: revenue
+        denominator: ad_spend
+   
 
 
   - name: dim_marketing_channels

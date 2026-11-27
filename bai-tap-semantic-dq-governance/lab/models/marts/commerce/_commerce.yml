@@ -44,7 +44,11 @@ models:
         expr: customer_id
         filter: "{{ Dimension('sales_order__is_cancelled') }} = false"
         
-
+      - name: aov 
+        label: Average order value (exxc. cancelled)
+        type: ratio
+        numerator: revenue
+        denominator: orders
     
 
   - name: fct_order_items
