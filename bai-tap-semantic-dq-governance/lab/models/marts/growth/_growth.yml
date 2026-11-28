@@ -23,6 +23,8 @@ models:
         type: simple     # loại metr
         agg: count       # phép tính
         expr: session_id # tính trên cột nào 
+      
+
       - name: conversion_rate 
         label: Conversion rate (orders / sessions)
         type: ratio
